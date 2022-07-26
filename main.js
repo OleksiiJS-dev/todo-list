@@ -26,9 +26,20 @@ function formHandler(event) { //better version dlya vzaimodeistviya s novimi spi
 
     const newTask = document.createElement('li'); //sozdanie TEGA LI vmeste s taskText
     newTask.innerText = taskText;
+    
 
-    //sozdaem knopku udalit
-    const deleteBtn = document.createElement('Button')
+    const deleteBtn = document.createElement('button'); //dobavlenie knopki udalit element spiska todo
+    deleteBtn.setAttribute('role', 'button');
+    deleteBtn.innerText = 'Удалить';
+    deleteBtn.style['margin-left'] = '15px';
+    newTask.append(deleteBtn);
+    
+    deleteBtn.addEventListener('click', function() {
+        this.closest('li').remove();
+    }); //funciya dlya udalenia dobavlennogo elementa knopki udalit
+    // this obraschaetsa k roditelskomu blijaeshemu blocky, s pomoschyou closest
+    
+    
     
     
     //dobavlenie na stranicu
@@ -38,3 +49,6 @@ function formHandler(event) { //better version dlya vzaimodeistviya s novimi spi
 
     todoInput.focus(); //autofocus na pole vvoda
 }
+// function deleteTask() {
+        
+// }
